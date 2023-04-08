@@ -1,9 +1,17 @@
 case = int(input())
-list = []
+result = ''
 
-for i in range(0, case):
-    test = input()
-    list.append(test)
+for i in range(case):
+    list = input()
+    score = 0
+    sum = 0
+    for j in range(len(list)):
+        if (list[j] == 'O'):
+            score += 1
+        else:
+            score = 0
+        sum += score
+    result += (f'{sum}\n')
 
-print(list)
-    
+print(result)
+
