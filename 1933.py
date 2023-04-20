@@ -1,2 +1,3 @@
-import sys
-input = sys.stdin.readline
+
+from sys import stdin
+import heapq
