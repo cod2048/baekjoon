@@ -1,7 +1,12 @@
 import sys
 input = sys.stdin.readline
 
-n, m = input().split()
+n, m = map(int, input().split())
+result = [0 for _ in range(n)]
 
-for i in range(m):
-    lst = list(map(int, input().split()))
+for _ in range(m):
+    i, j, k = map(int, input().split())
+    result[i-1:j] = [k] * (j - i + 1)
+
+for i in range(n):
+    print(result[i], end= ' ')
