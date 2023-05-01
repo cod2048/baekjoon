@@ -1,9 +1,10 @@
 n = int(input())
-result = list(map(int, input().split()))
-sum = 0
+score = list(map(int, input().split()))
+result = []
+m = max(score)
 
 for i in range(n):
-    aver = float(result[i]/max(result)*100)
-    sum += aver
-
-print(sum/n)
+	x = score[i]/m*100
+	result.append(x)
+    
+print(sum(result)/n)
