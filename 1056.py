@@ -4,7 +4,7 @@ input = sys.stdin.readline
 n, kim, im = map(int, input().split())
 cnt = 1
 
-for i in range(n):
+while True:
     if kim//2 != im //2 and (kim + 1 == im or im + 1 == kim):
         break
     else:
