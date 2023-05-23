@@ -15,5 +15,4 @@ for i in range(n):
 words = dict(sorted(words.items(), key = lambda x: (-x[1], -len(x[0]), x[0])))
 
 for i in words.keys():
-
     print(i)
