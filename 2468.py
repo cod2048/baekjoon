@@ -1,61 +1,42 @@
 import sys
+from collections import deque
+input = sys.stdin.readline
 
-sys.setrecursionlimit(10000)
+n = int(input())
+graph = [list(map(int, input().split())) for _ in range(n)]
+max_cnt = 1
 
-dx = [0, 1, 0, -1]
-dy = [1, 0, -1, 0]
+visited = [[False] * n for _ in range(n)]
 
-fld = []
-chk = []
-N = 0
-minh = 1000
-maxh = 0
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
+def bfs(x, y, h):
+    queue = deque()
+    queue.append((x, y))
+    visited[x][y] = True
+    
+    while queue:
+        cx, cy = queue.popleft()
+        for i in range(4):
+            nx, ny = cx + dx[i], cy + dy[i]
+            if nx >= 0 and nx < n and ny >= 0 and ny < n:
+                if not visited[nx][ny] and graph[nx][ny] > h:
+                    queue.append((nx, ny))
+                    visited[nx][ny] = True         
 
-def dfs(x, y, h):
-    global fld, chk, N, dx, dy
-
-    chk[x][y] = True
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-
-        if 0 <= nx < N and 0 <= ny < N and not chk[nx][ny] and fld[nx][ny] > h:
-            dfs(nx, ny, h)
-
-
-def count_safe_zone(h):
-    global fld, chk, N, dx, dy
-
-    chk = [[False] * N for _ in range(N)]
+for k in range(1, 101):
     cnt = 0
-
-    for i in range(N):
-        for j in range(N):
-            if not chk[i][j] and fld[i][j] > h:
-                dfs(i, j, h)
+    visited = [[False] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            if not visited[i][j] and graph[i][j] > k:
+                bfs(i, j, k)
                 cnt += 1
+    if cnt > max_cnt:
+        max_cnt = cnt
+    if cnt == 0:
+        break
 
-    return cnt
 
-
-def main():
-    global fld, N, minh, maxh
-
-    N = int(input())
-
-    fld = []
-    for _ in range(N):
-        row = list(map(int, input().split()))
-        fld.append(row)
-        minh = min(minh, min(row))
-        maxh = max(maxh, max(row))
-
-    ans = 1
-    for h in range(minh, maxh + 1):
-        cnt = count_safe_zone(h)
-        ans = max(ans, cnt)
-
-    print(ans)
-
-main()
+print(max_cnt)
