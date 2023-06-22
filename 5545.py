@@ -1,3 +1,5 @@
+
+
 import sys
 input = sys.stdin.readline
 
@@ -16,7 +18,7 @@ result = c / a
 
 for cals in d:
     new_cal = cal + cals
-    new_price = a + b
+    new_price = a + b   
 
     if new_cal / new_price > result:
         result = new_cal / new_price
