@@ -1,18 +1,14 @@
-a = []
+import sys
+input = sys.stdin.readline
 
-for i in range(0, 9):
-    a.append(int(input()))
+max_num = 0
+max_index = 0
 
-x = a[0]
-b = 0
-for i in range(0,9):
-    if i == 0:
-        x= a[0]
-        b= 1
+for i in range(9):
+  num = int(input())
+  if num > max_num:
+    max_num = num
+    max_index = i
 
-    if x < a[i]:
-        x = a[i]
-        b = i+1
-
-print(x)
-print(b)
+print(max_num)
+print(max_index+1)
