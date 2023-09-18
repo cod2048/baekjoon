@@ -1,10 +1,9 @@
-n, x = input().split()
+import sys
+input = sys.stdin.readline
 
-n = int(n)
-x = int(x)
+N, X = map(int, input().split())
+A = list(map(int, input().split()))
 
-a = list(map(int, input().split()))
-
-for i in range(0, n):
-    if x > a[i]:
-        print(a[i], end=' ')
+for i in range(N):
+  if A[i] < X:
+    print(A[i], end=' ')
