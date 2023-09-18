@@ -1,12 +1,16 @@
+import sys
+input = sys.stdin.readline
+
 a = int(input())
-b = input()
+b = str(input().strip())
 
-c = (a*int(b[-1]))
-d = (a*int(b[-2]))
-e = (a*int(b[-3]))
-f = c + (d*10) + (e*100)
+first_line = int(b[-1])*a
+second_line = int(b[-2])*a
+third_line = int(b[-3])*a
 
-print(c)
-print(d)
-print(e)
-print(f)
+result = first_line + second_line*10 + third_line*100
+
+print(first_line)
+print(second_line)
+print(third_line)
+print(result)
