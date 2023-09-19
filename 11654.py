@@ -1,3 +1,6 @@
-a = input()
+import sys
+input = sys.stdin.readline
 
-print(ord(a))
+letter = input().strip()
+
+print(ord(letter))
