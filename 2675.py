@@ -1,12 +1,10 @@
-n = int(input())
-result = ''
+import sys
+input = sys.stdin.readline
 
-for i in range(n):
-    r, s = input().split()
-    r = int(r)
-    p = ''
-    for j in range(len(s)):
-        p += r*s[j]
-    result += f"{p}\n"
+T = int(input())
 
-print(result)
+for _ in range(T):
+  R, S = input().split()
+  for i in list(S):
+    print(int(R)*i, end='')
+  print('')
