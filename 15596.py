@@ -1,5 +1,5 @@
+import sys
+input = sys.stdin.readline
+
 def solve(a):
-    result = 0
-    for i in a:
-        result += i
-    return result
+  return sum(a)
