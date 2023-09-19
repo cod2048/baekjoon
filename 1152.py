@@ -1,3 +1,6 @@
-s = input()
+import sys
+input = sys.stdin.readline
 
-print(len(s.split()))
+string = input().split()
+
+print(len(string))
