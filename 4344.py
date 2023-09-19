@@ -1,11 +1,13 @@
-c = int(input())
+import sys
+input = sys.stdin.readline
 
-for i in range(c):
-    stds = list(map(int, input().split()))
-    avg = sum(stds[1:])/stds[0]
-    h_stds = 0
-    for j in stds[1:]:
-        if j > avg:
-            h_stds += 1
-    result = ((h_stds/stds[0])*100)
-    print(('%.3f' %result) + '%')
+C = int(input())
+for _ in range(C):
+  test_case = list(map(int, input().split()))
+  student_num = test_case[0]
+  average_score = sum(test_case[1:]) / student_num
+  result = 0
+  for i in test_case[1:]:
+    if i > average_score:
+      result += 1
+  print(str(format(result / student_num * 100, ".3f"))+'%')
