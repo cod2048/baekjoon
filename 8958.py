@@ -1,17 +1,17 @@
-case = int(input())
-result = ''
+import sys
+input = sys.stdin.readline
 
-for i in range(case):
-    list = input()
-    score = 0
-    sum = 0
-    for j in range(len(list)):
-        if (list[j] == 'O'):
-            score += 1
-        else:
-            score = 0
-        sum += score
-    result += (f'{sum}\n')
+test_case = int(input())
 
-print(result)
-
+for _ in range(test_case):
+  answer = input()
+  score = 0
+  result = 0
+  for i in range(len(answer)):
+    if answer[i] == 'O':
+      score += 1
+      result += score
+    else:
+      score = 0
+      continue
+  print(result)
