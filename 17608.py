@@ -1,17 +1,20 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-stick = []
-count = 0
+N = int(input())
+sticks = []
+for _ in range(N):
+  sticks.append(int(input()))
 
-for i in range(n):
-    s = int(input())
-    stick.append(s)
+r_stick = sticks[-1]
+result = 0
+see_stick = len(sticks) - 2
 
-for i in range(1, n):
-    if stick[-1] < stick[-1-i]:
-        count += 1
-        stick[-1] = stick[-1-i]
+while see_stick >= 0:
+  if r_stick >= sticks[see_stick]:
+    see_stick -= 1
+  else:
+    r_stick = sticks[see_stick]
+    result += 1
 
-print(count+1)
+print(result + 1)
