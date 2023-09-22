@@ -1,14 +1,16 @@
-def hanoi(n, x, y):
-    if n == 1:
-        print(x, y, sep = " ")
-        return
-    hanoi(n-1, x, 6-x-y)
-    print(x, y)
-    hanoi(n-1, 6-x-y, y)
-    
-n = int(input())
-if n <= 20:
-    print(2 ** n - 1)
-    hanoi(n, 1, 3)
-else:
-    print(2 ** n -1)
+import sys
+input = sys.stdin.readline
+
+def hanoi(num, start, fin):
+  if num == 1:
+    print(start, fin)
+    return
+  hanoi(num-1, start, 6-start-fin)
+  print(start, fin)
+  hanoi(num-1, 6-start-fin, fin)
+
+N = int(input())
+
+print(2**N - 1)
+if N <= 20:
+  hanoi(N, 1, 3)
