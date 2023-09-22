@@ -2,8 +2,11 @@ import sys
 input = sys.stdin.readline
 
 N = int(input())
-result = 1
-for i in range(N):
-  result += result * i
 
-print(result)
+def factorial(num):
+  if num == 0:
+    return 1
+  else:
+    return num * factorial(num-1)
+  
+print(factorial(N))
