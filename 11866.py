@@ -1,20 +1,17 @@
+import sys
+input = sys.stdin.readline
 from collections import deque
 
-n, k = map(int, input().split())
+N, K = map(int, input().split())
+people = deque([i for i in range(1, N+1)])
+result = []
 
-ysps = []
-queue = deque()
+while len(people):
+  for _ in range(K-1):
+    people.append(people.popleft())
+  result.append(people.popleft())
 
-for i in range(1, n + 1):
-    queue.append(i)
-
-while queue:
-    for i in range(k - 1):
-        queue.append(queue.popleft())
-
-    ysps.append(queue.popleft())
-
-print('<', end="")
-for i in range(len(ysps)-1):
-    print(ysps[i], end= ', ')
-print(ysps[-1], end=">")
+print('<', end='')
+for i in range(N-1):
+  print(result[i], end=', ')
+print(result[-1], end=">")
