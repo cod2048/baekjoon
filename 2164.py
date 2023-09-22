@@ -1,13 +1,15 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
+from collections import deque
 
-n = int(input())
-cards = deque([i for i in range(1, n+1)])
+N = int(input())
+cards = deque()
 
-while(len(cards) >1):
-    cards.popleft()
-    move_card = cards.popleft()
-    cards.append(move_card)
-    
+for i in range(1, N + 1):
+  cards.append(i)
+
+while len(cards) >= 2:
+  cards.popleft()
+  cards.append(cards.popleft())
+
 print(cards[0])
