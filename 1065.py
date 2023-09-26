@@ -1,17 +1,17 @@
-n = input()
+import sys
+input = sys.stdin.readline
 
-count = 0
+N = int(input())
+cnt = 0
 
-for i in range(1, int(n)+1):
+for i in range(1, N+1):
     if (i<100):
-        count += 1
-    elif(i>=100):
+        cnt += 1
+    else:
         i = str(i)
         if (int(i[0])-int(i[1]))==(int(i[1])-int(i[2])):
-            count +=1
-    # else:
-    #     
+            cnt +=1 
 
-print(count)
+print(cnt)
         
 
