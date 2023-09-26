@@ -1,13 +1,13 @@
 import sys
+input = sys.stdin.readline
 
-n = int(sys.stdin.readline())
-old_list = []
+N = int(input())
+words = set()
+for _ in range(N):
+  words.add(input().strip())
 
-for i in range(n):
-    old_list.append(sys.stdin.readline().strip())
-new_list = set(old_list)
-old_list = list(new_list)
-old_list.sort()
-old_list.sort(key = len)
-for i in old_list:
-    print(i)
+word_list = list(words)
+word_list.sort()
+word_list.sort(key=len)
+for i in range(len(word_list)):
+  print(word_list[i])
