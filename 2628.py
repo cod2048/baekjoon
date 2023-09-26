@@ -1,29 +1,28 @@
+import sys
+input = sys.stdin.readline
+
 x, y = map(int, input().split())
+cut_x = [0, y]
+cut_y = [0, x]
+
 cut = int(input())
-x_cut = [0]
-y_cut = [0]
-
 for i in range(cut):
-    a, b = map(int, input().split())
-    if a == 0:
-        x_cut.append(b)
+    x_y, where = map(int, input().split())
+    if x_y == 0:
+        cut_x.append(where)
     else:
-        y_cut.append(b)
+        cut_y.append(where)
+cut_x.sort()
+cut_y.sort()
 
-x_cut.append(y)
-y_cut.append(x)
+max_x = 0
+max_y = 0
+for i in range(1, len(cut_x)):
+    if cut_x[i] - cut_x[i-1] > max_x:
+        max_x = cut_x[i] - cut_x[i-1]
 
-x_cut = sorted(x_cut)
-y_cut = sorted(y_cut)
+for i in range(1, len(cut_y)):
+    if cut_y[i] - cut_y[i-1] > max_y:
+        max_y = cut_y[i] - cut_y[i-1]
 
-x_max = 0
-for i in range(1, len(x_cut)):
-    if (x_cut[i] - x_cut[i-1]) > x_max:
-        x_max = x_cut[i] - x_cut[i-1]
-
-y_max = 0
-for i in range(1, len(y_cut)):
-    if (y_cut[i] - y_cut[i-1]) > y_max:
-        y_max = y_cut[i] - y_cut[i-1]
-
-print(x_max * y_max)
+print(max_x*max_y)
