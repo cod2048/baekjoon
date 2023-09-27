@@ -1,15 +1,17 @@
 import sys
 input = sys.stdin.readline
 
-n = int(input())
-
-i = 2
+N = int(input())
+result = []
 
 while True:
-    if n == 1:
-        break
-    if n % i == 0:
-        n = n / i
-        print(i)
-    else:
-        i += 1
+  if N == 1:
+    break
+  for i in range(2, N+1):
+    if N % i == 0:
+      result.append(i)
+      N = N//i
+      break
+
+for i in range(len(result)):
+  print(result[i])
