@@ -1,9 +1,11 @@
-n= int(input())
-num = input()
-sum = 0
+import sys
+input = sys.stdin.readline
 
-for i in range(n):
-    
-    sum += int(num[i])
+N = int(input())
+nums = str(input().strip())
+result = 0
 
-print(sum)
+for i in range(len(nums)):
+  result += int(nums[i])
+
+print(result)
